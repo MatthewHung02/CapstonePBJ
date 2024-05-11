@@ -885,6 +885,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059cadf32cc09e2439d228ba3bc44bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &454605519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9014170783809206335, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 2109798407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &494245700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4981c03483ce418e2af67cc77244b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 0}
+  head: {fileID: 454605519}
   spawnDistance: 2
   menu: {fileID: 429088096}
   showButton:
