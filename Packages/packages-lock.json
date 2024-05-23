@@ -1,5 +1,23 @@
 {
   "dependencies": {
+    "com.rabeeqiblawi.openaiapiwrapper": {
+      "version": "https://github.com/rabeeqiblawi/UnityOpenAIWrapper.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "e3639b0749d283ff0c630778ba1d426b9a18d93b"
+    },
+    "com.srcnalt.openai-unity": {
+      "version": "https://github.com/srcnalt/OpenAI-Unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "hash": "f7f501c076f27a12a2cbb2fa1235a106ce7b16e3"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.3",
       "depth": 0,
@@ -16,7 +34,7 @@
     },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
-      "depth": 1,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -37,7 +55,7 @@
     },
     "com.unity.ide.rider": {
       "version": "3.0.20",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6"
@@ -46,7 +64,7 @@
     },
     "com.unity.ide.visualstudio": {
       "version": "2.0.18",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
@@ -76,6 +94,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.performance.profile-analyzer": {
       "version": "1.2.2",
       "depth": 1,
@@ -92,7 +117,7 @@
     },
     "com.unity.test-framework": {
       "version": "1.1.31",
-      "depth": 0,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6",
