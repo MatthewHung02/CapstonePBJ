@@ -9,6 +9,10 @@ TagManager:
   - slice1
   - slice2
   - knife
+  - ingredientJelly
+  - ingredientPB
+  - ingredientTopBread
+  - mainSandwich
   layers:
   - Default
   - TransparentFX
