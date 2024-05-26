@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - knifePB
+  - knifeJelly
+  - slice1
+  - slice2
+  - knife
+  - ingredientJelly
+  - ingredientPB
+  - ingredientTopBread
+  - mainSandwich
   layers:
   - Default
   - TransparentFX
