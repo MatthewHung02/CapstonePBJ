@@ -4175,6 +4175,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallTimeThreshold: 7
+--- !u!65 &1664434534
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664434522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08776184, y: 0.10567194, z: 0.019651705}
+  m_Center: {x: 0, y: 1.3896634e-22, z: 0.000000017229471}
 --- !u!1001 &1672025331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5097,6 +5110,10 @@ PrefabInstance:
     - target: {fileID: 3793734042683397086, guid: 2f8f32bccc36763479a106c48d1ff620, type: 3}
       propertyPath: m_Name
       value: ingredientToast
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793734042683397086, guid: 2f8f32bccc36763479a106c48d1ff620, type: 3}
+      propertyPath: m_TagString
+      value: ingredientTopBread
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f8f32bccc36763479a106c48d1ff620, type: 3}
