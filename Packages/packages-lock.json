@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.martinpluisch.openai-text-to-speech": {
+      "version": "https://github.com/mapluisch/OpenAI-Text-To-Speech-for-Unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "082afa0f7aa8b84f15431d9749ff60ef39c5c196"
+    },
     "com.rabeeqiblawi.openaiapiwrapper": {
       "version": "https://github.com/rabeeqiblawi/UnityOpenAIWrapper.git",
       "depth": 0,

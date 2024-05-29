@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.martinpluisch.openai-text-to-speech": "https://github.com/mapluisch/OpenAI-Text-To-Speech-for-Unity.git",
     "com.rabeeqiblawi.openaiapiwrapper": "https://github.com/rabeeqiblawi/UnityOpenAIWrapper.git",
     "com.srcnalt.openai-unity": "https://github.com/srcnalt/OpenAI-Unity.git",
     "com.unity.collab-proxy": "2.0.3",
