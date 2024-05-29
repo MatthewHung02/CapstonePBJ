@@ -1,11 +1,11 @@
 {
   "dependencies": {
+    "com.martinpluisch.openai-text-to-speech": "https://github.com/mapluisch/OpenAI-Text-To-Speech-for-Unity.git",
+    "com.rabeeqiblawi.openaiapiwrapper": "https://github.com/rabeeqiblawi/UnityOpenAIWrapper.git",
+    "com.srcnalt.openai-unity": "https://github.com/srcnalt/OpenAI-Unity.git",
     "com.unity.collab-proxy": "2.0.3",
     "com.unity.feature.development": "1.0.1",
-    "com.unity.ide.rider": "3.0.20",
-    "com.unity.ide.visualstudio": "2.0.18",
     "com.unity.ide.vscode": "1.2.5",
-    "com.unity.test-framework": "1.1.31",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.6.4",
     "com.unity.ugui": "1.0.0",
