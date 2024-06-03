@@ -1,5 +1,8 @@
 using System;
 using UnityEngine;
+using Samples.Whisper;
+using OpenAI;
+
 
 public class TTSManager : MonoBehaviour
 {
@@ -7,8 +10,9 @@ public class TTSManager : MonoBehaviour
     [SerializeField] private AudioPlayer audioPlayer;
     [SerializeField] private TTSModel model = TTSModel.TTS_1;
     [SerializeField] private TTSVoice voice = TTSVoice.Alloy;
+    [SerializeField] public ChatGPT gptScript;
     [SerializeField, Range(0.25f, 4.0f)] private float speed = 1f;
-    
+
     private void OnEnable()
     {
         if (!openAIWrapper) this.openAIWrapper = FindObjectOfType<OpenAIWrapper>();
@@ -20,7 +24,7 @@ public class TTSManager : MonoBehaviour
     public async void SynthesizeAndPlay(string text)
     {
         Debug.Log("Trying to synthesize " + text);
-        byte[] audioData = await openAIWrapper.RequestTextToSpeech(text, model, voice, speed);
+        byte[] audioData = await openAIWrapper.RequestTextToSpeech(text, model, voice, speed); //Part3: text object is where we want chatgpt response to go
         if (audioData != null)
         {
             Debug.Log("Playing audio.");
