@@ -8,8 +8,9 @@ namespace Samples.Whisper
     {
         [SerializeField] private Button recordButton;
         [SerializeField] private Image progressBar;
-        [SerializeField] private Text message;
+        [SerializeField] public Text message;
         [SerializeField] private Dropdown dropdown;
+        [SerializeField] private ChatGPT gtpScript;
         
         private readonly string fileName = "output.wav";
         private readonly int duration = 5;
@@ -73,8 +74,11 @@ namespace Samples.Whisper
             var res = await openai.CreateAudioTranslation(req);
 
             
-            message.text = res.Text;
-            
+            message.text = res.Text; //This is what's displayed. Use this to feed into GPT
+            //Part1: Call the SendReply() from ChatGPT.cs
+            gtpScript.SendReply(message.text);
+
+
         }
 
         private void Update()
