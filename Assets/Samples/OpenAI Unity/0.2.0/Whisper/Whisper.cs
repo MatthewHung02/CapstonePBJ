@@ -1,11 +1,13 @@
 ﻿using OpenAI;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace Samples.Whisper
 {
     public class Whisper : MonoBehaviour
     {
+        [SerializeField] public InputActionProperty promptButton;   //button for beginning the prompt
         [SerializeField] private Button recordButton;
         [SerializeField] private Image progressBar;
         [SerializeField] public Text message;
@@ -83,6 +85,12 @@ namespace Samples.Whisper
 
         private void Update()
         {
+            if (promptButton.action.WasPressedThisFrame())
+            { //Starts recording when button is pressed(?)
+                Debug.Log("XR Button Works");
+                StartRecording();
+            }
+
             if (isRecording)
             {
                 time += Time.deltaTime;
