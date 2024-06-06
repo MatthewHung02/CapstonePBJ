@@ -30,7 +30,9 @@ namespace OpenAI
             "The user will be provided a table. At the top left of the table is a bag of bread they can interact with to get a slice of bread" +
             "At the top right of the table are two jars of peanut butter and jelly. They can only obtain the two ingredients with a knife" +
             "To apply the peanut butter and jelly, the user only needs to have the knife with the ingredient touch a slice of bread" +
-            "";
+            "Keep responses short and concise. About two sentences maximum.";
+        //ALL CAPS RESET SCENE
+        //FIND 
 
         private void Start()
         {
@@ -64,7 +66,8 @@ namespace OpenAI
 
             Debug.Log(text);
             if (messages.Count == 0) newMessage.Content = prompt + "\n" + inputField.text + text; //NOTE: Test this
-            
+            newMessage.Content += "\n" + text;
+
             messages.Add(newMessage);
             
             button.enabled = false;

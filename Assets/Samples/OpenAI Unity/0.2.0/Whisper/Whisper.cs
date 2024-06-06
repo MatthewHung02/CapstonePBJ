@@ -7,6 +7,7 @@ namespace Samples.Whisper
 {
     public class Whisper : MonoBehaviour
     {
+        private int microphoneIndex = 0;
         [SerializeField] public InputActionProperty promptButton;   //button for beginning the prompt
         [SerializeField] private Button recordButton;
         [SerializeField] private Image progressBar;
@@ -44,15 +45,16 @@ namespace Samples.Whisper
             PlayerPrefs.SetInt("user-mic-device-index", index);
         }
         
-        private void StartRecording()
+        public void StartRecording()
         {
             isRecording = true;
             recordButton.enabled = false;
 
-            var index = PlayerPrefs.GetInt("user-mic-device-index");
-            
+            //var index = PlayerPrefs.GetInt("user-mic-device-index");
+
             #if !UNITY_WEBGL
-            clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
+            //clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
+            clip = Microphone.Start(Microphone.devices[microphoneIndex], false, duration, 44100);
             #endif
         }
 
