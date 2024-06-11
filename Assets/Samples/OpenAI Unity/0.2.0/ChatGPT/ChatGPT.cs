@@ -14,10 +14,9 @@ namespace OpenAI
         
         [SerializeField] private RectTransform sent;
         [SerializeField] private RectTransform received;
-        [SerializeField] private GameObject whisperObject; //NEED TO REFERENCE OBJECT SCRIPT, not just the object
+        [SerializeField] private GameObject whisperObject;
         [SerializeField] private TTSManager managerScript;
         [SerializeField] private SceneSwitcher sceneReset;
-        //public Whisper whisper;
 
         private float height;
         private OpenAIApi openai = new OpenAIApi();
@@ -43,12 +42,11 @@ namespace OpenAI
                 "Be sure to congratulate the player for doing so." +
             "If the user says they've lost the knife or they've made a mistake, offer the user to reset the scene so they can start over. They should respond with yes or no first." +
             "If they say yes, then say that you will restart the scene and append RESET_SCENE phrase";
-        //ALL CAPS RESET SCENE
-        //FIND 
+
 
         private void Start()
         {
-            //button.onClick.AddListener(SendReply); dont need this FOR NOW
+            //button.onClick.AddListener(SendReply); <= Don't need this, but keeping it just in case
         }
 
         private void AppendMessage(ChatMessage message)
@@ -66,7 +64,6 @@ namespace OpenAI
 
         public async void SendReply(string text)
         {
-            //NOTE: import res.txt from Whisper.cs. Put it into prompt + newMessage.content == prompt + "\n"
             var newMessage = new ChatMessage()
             {
                 Role = "user",
@@ -74,10 +71,9 @@ namespace OpenAI
             };
             
             AppendMessage(newMessage);
-            //newMessage.Content = whisper.message.text; //.text might not work
 
             Debug.Log(text);
-            if (messages.Count == 0) newMessage.Content = prompt + "\n" + inputField.text + text; //NOTE: Test this
+            if (messages.Count == 0) newMessage.Content = prompt + "\n" + inputField.text + text;
             newMessage.Content += "\n" + text;
 
             messages.Add(newMessage);
@@ -93,10 +89,9 @@ namespace OpenAI
                 Messages = messages
             });
 
+            //Resets the scene when the user confirms they want to do so
             if (completionResponse.Choices[0].Message.Content.Contains("RESET_SCENE"))
             {
-                //resets scene
-                Debug.Log("Resetting scene... :)");
                 sceneReset.LoadScene("MainPBJScene");
             }
 
@@ -107,7 +102,7 @@ namespace OpenAI
                 message.Content = message.Content.Trim();
                 
                 messages.Add(message);
-                //Part2: Call SynthesizeAndPlay() in TTSManager.cs
+                //PART 2: When response is received, sends results over to TTSManager.cs
                 AppendMessage(message);
                 managerScript.SynthesizeAndPlay(message.Content);
             }

@@ -24,12 +24,11 @@ public class TTSManager : MonoBehaviour
     public async void SynthesizeAndPlay(string text)
     {
         Debug.Log("Trying to synthesize " + text);
-        byte[] audioData = await openAIWrapper.RequestTextToSpeech(text, model, voice, speed); //Part3: text object is where we want chatgpt response to go
+        //PART 3: text object is where we want chatgpt response to go. Matthew did absolutely nothing for this entire project lol.
+        byte[] audioData = await openAIWrapper.RequestTextToSpeech(text, model, voice, speed);
         if (audioData != null)
         {
-            Debug.Log("Playing audio.");
             audioPlayer.ProcessAudioBytes(audioData);
-            Debug.Log("Done playing audio");
         }
         else Debug.LogError("Failed to get audio data from OpenAI.");
     }

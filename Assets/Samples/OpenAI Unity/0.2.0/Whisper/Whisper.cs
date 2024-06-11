@@ -7,8 +7,8 @@ namespace Samples.Whisper
 {
     public class Whisper : MonoBehaviour
     {
-        private int microphoneIndex = 0;
-        [SerializeField] public InputActionProperty promptButton;   //button for beginning the prompt
+        private int microphoneIndex = 0; //Needed to hard code microphone to use the headset due to time constraints
+        [SerializeField] public InputActionProperty promptButton;   //Button used for beginning the prompt
         [SerializeField] private Button recordButton;
         [SerializeField] private Image progressBar;
         [SerializeField] public Text message;
@@ -79,7 +79,7 @@ namespace Samples.Whisper
 
             
             message.text = res.Text; //This is what's displayed. Use this to feed into GPT
-            //Part1: Call the SendReply() from ChatGPT.cs
+            //PART 1: Sends STT result over to ChatGPT.cs
             gtpScript.SendReply(message.text);
 
 
@@ -88,8 +88,7 @@ namespace Samples.Whisper
         private void Update()
         {
             if (promptButton.action.WasPressedThisFrame())
-            { //Starts recording when button is pressed(?)
-                Debug.Log("XR Button Works");
+            {
                 StartRecording();
             }
 
