@@ -29,6 +29,7 @@ public class TTSManager : MonoBehaviour
         {
             Debug.Log("Playing audio.");
             audioPlayer.ProcessAudioBytes(audioData);
+            Debug.Log("Done playing audio");
         }
         else Debug.LogError("Failed to get audio data from OpenAI.");
     }

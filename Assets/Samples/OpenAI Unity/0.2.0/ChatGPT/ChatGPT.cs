@@ -16,21 +16,33 @@ namespace OpenAI
         [SerializeField] private RectTransform received;
         [SerializeField] private GameObject whisperObject; //NEED TO REFERENCE OBJECT SCRIPT, not just the object
         [SerializeField] private TTSManager managerScript;
+        [SerializeField] private SceneSwitcher sceneReset;
         //public Whisper whisper;
 
         private float height;
         private OpenAIApi openai = new OpenAIApi();
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "You are an instructor named Elizabeth and your goals is to provide guidance to the user on how to create a Peanut Butter and Jelly Sandwich." +
+        private string prompt =
+            "Never break character, or mention you are an AI model." +
+            "Only write responses with two sentences or less. Keep responses as short as possible but be sure to still sound friendly meanwhile." +
+            "You are an instructor named Elizabeth and your goal is to provide guidance to the user on how to create a Peanut Butter and Jelly Sandwich." +
             "This will take place in a Virtual Reality environment, where the user has two controllers and a headset." +
             "Users can interact with objects using the triggers of the controller." +
             "Answer questions that can help the user figure out what step to make next in their sandwich-making process." +
-            "Never break character, or mention you are an AI model." +
             "The user will be provided a table. At the top left of the table is a bag of bread they can interact with to get a slice of bread" +
             "At the top right of the table are two jars of peanut butter and jelly. They can only obtain the two ingredients with a knife" +
             "To apply the peanut butter and jelly, the user only needs to have the knife with the ingredient touch a slice of bread" +
-            "Keep responses short and concise. About two sentences maximum.";
+            "Keep responses short and concise. About two sentences maximum." +
+            "If the user asks for step-by-step instructions, go as follow:" +
+                "1) Grab the knife with either controller" +
+                "2) Use knife to obtain peanut butter or jelly by making the knife touch the respective jar at the top left" +
+                "3) apply the ingredient to the piece of bread at the center" +
+                "4) do the same for the other ingredient" +
+                "5) when both ingredients are applied, grab a piece of bread from the bag of bread and place it on top to complete the sandwich." +
+                "Be sure to congratulate the player for doing so." +
+            "If the user says they've lost the knife or they've made a mistake, offer the user to reset the scene so they can start over. They should respond with yes or no first." +
+            "If they say yes, then say that you will restart the scene and append RESET_SCENE phrase";
         //ALL CAPS RESET SCENE
         //FIND 
 
@@ -80,6 +92,13 @@ namespace OpenAI
                 Model = "gpt-4o",
                 Messages = messages
             });
+
+            if (completionResponse.Choices[0].Message.Content.Contains("RESET_SCENE"))
+            {
+                //resets scene
+                Debug.Log("Resetting scene... :)");
+                sceneReset.LoadScene("MainPBJScene");
+            }
 
             if (completionResponse.Choices != null && completionResponse.Choices.Count > 0)
             {
