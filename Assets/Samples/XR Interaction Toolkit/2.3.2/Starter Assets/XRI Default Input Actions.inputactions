@@ -648,6 +648,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "promptButton",
+                    "type": "Button",
+                    "id": "a64a1669-29ae-4ced-a8ce-193913da306f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -791,6 +800,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e28e361c-457a-4b50-9cbe-a011e4666eac",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "promptButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b22523d-8793-489a-ae46-7015f5e1a14e",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "promptButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

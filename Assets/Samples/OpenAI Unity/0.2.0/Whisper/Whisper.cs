@@ -1,11 +1,14 @@
 ﻿using OpenAI;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace Samples.Whisper
 {
     public class Whisper : MonoBehaviour
     {
+        private int microphoneIndex = 0; //Needed to hard code microphone to use the headset due to time constraints
+        [SerializeField] public InputActionProperty promptButton;   //Button used for beginning the prompt
         [SerializeField] private Button recordButton;
         [SerializeField] private Image progressBar;
         [SerializeField] public Text message;
@@ -42,15 +45,16 @@ namespace Samples.Whisper
             PlayerPrefs.SetInt("user-mic-device-index", index);
         }
         
-        private void StartRecording()
+        public void StartRecording()
         {
             isRecording = true;
             recordButton.enabled = false;
 
-            var index = PlayerPrefs.GetInt("user-mic-device-index");
-            
+            //var index = PlayerPrefs.GetInt("user-mic-device-index");
+
             #if !UNITY_WEBGL
-            clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
+            //clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
+            clip = Microphone.Start(Microphone.devices[microphoneIndex], false, duration, 44100);
             #endif
         }
 
@@ -75,7 +79,7 @@ namespace Samples.Whisper
 
             
             message.text = res.Text; //This is what's displayed. Use this to feed into GPT
-            //Part1: Call the SendReply() from ChatGPT.cs
+            //PART 1: Sends STT result over to ChatGPT.cs
             gtpScript.SendReply(message.text);
 
 
@@ -83,6 +87,11 @@ namespace Samples.Whisper
 
         private void Update()
         {
+            if (promptButton.action.WasPressedThisFrame())
+            {
+                StartRecording();
+            }
+
             if (isRecording)
             {
                 time += Time.deltaTime;
